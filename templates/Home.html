@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+    <br>
+    <h3>Paste Any Text You Want To Analyze--</h3>
+    <hr>
+    <form action="/analyze" method="post">
+        {% csrf_token %}
+        <div class="mb-3 text-center">
+            <textarea class="form-control" name="text" id="exampleFormControlTextarea1" rows="9"></textarea>
+        </div>
+        <div class="form-check form-switch">
+            <input class="form-check-input" name="removepunc" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Remove Punctuations</label>
+        </div>
+
+        <div class="form-check form-switch">
+            <input class="form-check-input" name="removespace" type="checkbox" role="switch" id="flexSwitchCheckDefault1">
+            <label class="form-check-label" for="flexSwitchCheckDefault1">Remove Spaces</label>
+        </div>
+
+        <div class="form-check form-switch">
+            <input class="form-check-input" name="removenewline" type="checkbox" role="switch" id="flexSwitchCheckDefault2">
+            <label class="form-check-label" for="flexSwitchCheckDefault2">Remove New Line</label>
+        </div>
+
+        <div class="form-check form-switch">
+            <input class="form-check-input" name="capchars" type="checkbox" role="switch" id="flexSwitchCheckDefault3">
+            <label class="form-check-label" for="flexSwitchCheckDefault3">Capatalize Every Characters</label>
+        </div>
+
+        <button type="submit" class="btn btn-dark mt-3">Analyze</button>
+    </form>
+</div>
+
+
+{% endblock content %}
